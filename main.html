@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetology Session Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .loading {
+            font-size: 18px;
+            color: #00bfff;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cosmetology Appointment</h1>
+        <form id="appointment-form">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="time">Select Session Time</label>
+            <select id="time" name="time" required>
+                <option value="" disabled selected>Select a time</option>
+                <option value="09:00 AM">09:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="01:00 PM">01:00 PM</option>
+                <option value="02:00 PM">02:00 PM</option>
+                <option value="03:00 PM">03:00 PM</option>
+                <option value="04:00 PM">04:00 PM</option>
+            </select>
+
+            <button type="submit" class="submit-btn">Book Appointment</button>
+        </form>
+        <div class="loading">Processing...</div>
+    </div>
+
+    <script>
+        document.getElementById('appointment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Show loading message
+            document.querySelector('.loading').style.display = 'block';
+
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const username = document.getElementById('username').value;
+            const time = document.getElementById('time').value;
+
+            // Display alert with collected data (for now, you can replace it with actual backend API)
+            setTimeout(function() {
+                alert(`Appointment successfully booked for:\nName: ${name}\nUsername: ${username}\nTime: ${time}`);
+
+                // Hide loading message after a delay
+                document.querySelector('.loading').style.display = 'none';
+
+                // Reset form
+                document.getElementById('appointment-form').reset();
+            }, 2000); // Simulate processing time (2 seconds)
+        });
+    </script>
+</body>
+</html>
